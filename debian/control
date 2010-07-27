@@ -1,0 +1,13 @@
+Source: flvtool++
+Section: unknown
+Priority: extra
+Maintainer: Elbandi <ea333@freemail.hu>
+Build-Depends: debhelper (>= 7), libboost1.40-dev
+Standards-Version: 3.8.3
+
+Package: flvtool++
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Flash Video Manipulation Tool
+ FLVTool++ is tool for hinting and manipulating the metadata of Adobe
+ Flash Video (FLV) files.
