@@ -1,0 +1,16 @@
+flvtool++ is a tool for hinting and manipulating the metadata of FLV files. It was originally created for Facebook's Video project (http://facebook.com/video/) for fast video hinting. It is loosely based on the Ruby FLVTool2, but is written in C++ for performance reasons.
+
+To get the latest version, go to: http://developers.facebook.com/opensource.php
+
+Requirements:
+  * SCons (http://www.scons.org/)
+  * Boost >= 1.33.1 (http://www.boost.org/)
+
+Compiling:
+  To compile, run "scons" wherever you untarred the code.
+
+Running:
+  Run flvtool++ with no arguments to learn about its usage.
+
+Notes:
+  This code is provided with absolutely no support from us, but patches and qualified bug reports are welcomed at opensource@facebook.com.
