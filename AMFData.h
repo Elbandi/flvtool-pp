@@ -17,6 +17,12 @@
 #ifdef __APPLE__
   #include <architecture/byte_order.h>
   #define hton64(x) OSSwapHostToBigInt64(x)
+#elif defined( __FreeBSD__ )
+  #if _BYTE_ORDER == _LITTLE_ENDIAN
+    #define hton64(x) bswap64(x)
+  #else
+    #define hton64(x) (x)
+  #endif
 #else
   #include <byteswap.h>
   #if __BYTE_ORDER == __LITTLE_ENDIAN
