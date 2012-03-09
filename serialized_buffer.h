@@ -8,6 +8,7 @@
 #pragma once
 #include <stdexcept>
 
+// start of platform detection
 #ifdef __APPLE__ // Mac byteswap defs
 
 #include <architecture/byte_order.h>
@@ -17,6 +18,17 @@
 #define LE16(x) OSSwapLittleToHostInt16(x)
 #define LE32(x) OSSwapLittleToHostInt32(x)
 #define LE64(x) OSSwapLittleToHostInt64(x)
+
+#elif defined ( __FreeBSD__ ) // FreeBSD byteswap defs
+
+#include <sys/endian.h>
+
+#define BE16(x) htobe16(x)
+#define BE32(x) htobe32(x)
+#define BE64(x) htobe64(x)
+#define LE16(x) htole16(x)
+#define LE32(x) htole32(x)
+#define LE64(x) htole64(x)
 
 #else // Linux byteswap defs
 
@@ -30,16 +42,16 @@
   #define LE16(x) (x)
   #define LE32(x) (x)
   #define LE64(x) (x)
-#else
+#else // !__LITTLT_ENDIAN
   #define BE16(x) (x)
   #define BE32(x) (x)
   #define BE64(x) (x)
   #define LE16(x) __bswap_16(x)
   #define LE32(x) __bswap_32(x)
   #define LE64(x) __bswap_64(x)
-#endif
+#endif // __LITTLE_ENDIAN
 
-#endif
+#endif // end of platform detection
 
 class end_of_buffer : public std::exception {
 public:
